@@ -1,0 +1,219 @@
+{
+     "name": "bartop",
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "modules-left": [
+        "wlr/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock",
+        "custom/updates"
+    ],
+    "modules-right": [
+        "network",
+        "tray",
+        "backlight",
+        "pulseaudio",
+        "memory",
+        "cpu",
+        "disk",
+        "custom/power_profile",
+        "battery",
+        "custom/light_dark"
+    ],
+    
+    "include": [
+        "~/.config/HyprV/waybar/conf/mesu.jsonc",
+        "~/.config/HyprV/waybar/conf/asus-rog.jsonc",
+        "~/.config/HyprV/waybar/conf/hyprv-util.jsonc"
+    ],
+
+    "custom/launch_wofi": {
+        "format": "",
+        "on-click": "pkill wofi || wofi -n -c ~/.config/HyprV/wofi/config-bmenu",
+        "tooltip": false
+    },
+
+    "hyprland/window": {
+        "format": " {}",
+        "rewrite": {
+            "(.*) - Sublime Text (UNREGISTERED)": "📖 $1",
+            "(.*) - Brave": "🌏  $1",
+            "(.*) - Thunar": "   $1"
+        } 
+    },
+
+
+    "custom/power_btn": {
+        "format": "",
+        "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
+        "tooltip": false
+    },
+
+
+    "custom/lock_screen": {
+        "format": "",
+        "on-click": "sh -c '(sleep 0.5s; swaylock)' & disown",
+        "tooltip": false
+    },
+
+    "wlr/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": []
+        }
+    },
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 13,
+        "icon-theme": "Shadow",
+        "all-outputs": false,
+        "ignore-list": ["Thunar"],
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+            "wofi"
+         ],
+	    "app_ids-mapping": {
+	        "steam_app_39210": "Final Fantasy 14"
+	    }
+    },
+
+
+   "network": {
+        "interval": 2,
+        "interface": "wlo1",
+        "format": "  {bandwidthDownBytes}   {bandwidthUpBytes} ",
+        "tooltip-format":  
+        "    {bandwidthDownBits} Down  ::  {bandwidthUpBits} Up
+    Total speed:  {bandwidthTotalBits}, 
+    Connected: {essid}
+    Strength: {signalStrength}",
+        "min-length": 14
+
+    },
+
+    "cpu": {
+        "interval": 10,
+        "format": " {usage}%",
+        "max-length": 20,
+        "format-alt-click": "click-right",
+        "format-alt": " ",
+        "on-click": "alacritty --title btop -e btop
+"
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "format-alt-click": "click-right",
+        "format-alt": " ",
+        "max-length": 10,
+        "tooltip": true,
+        "tooltip-format": "Memory - {used:0.1f}GB used",
+        "on-click": "alacritty --title btop -e btop
+"
+    },
+    
+    "disk": {
+        "interval": 30,
+        "format": " {percentage_used}%",
+        "font-size": 5,
+        "path": "/",
+        "format-alt-click": "click-right",
+        "format-alt": "󰋊 ",
+        "tooltip": true,
+        "tooltip-format": "HDD - {used} used out of {total} on {path} ({percentage_used}%)",
+        "on-click": "alacritty --title btop -e btop
+"
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon}",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt-click": "click-right",
+        "format-alt": "{icon} {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "",
+        "on-click": "~/.config/HyprV/waybar/scripts/volume --toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "~/.config/HyprV/waybar/scripts/volume --inc",
+        "on-scroll-down": "~/.config/HyprV/waybar/scripts/volume --dec",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "tooltip": true,
+        "tooltip-format": "{icon} at {volume}%"
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "on-click": "~/.config/HyprV/waybar/scripts/volume --toggle-mic",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "~/.config/HyprV/waybar/scripts/volume --mic-inc",
+        "on-scroll-down": "~/.config/HyprV/waybar/scripts/volume --mic-dec",
+        "scroll-step": 5,
+        "tooltip": true,
+        "tooltip-format": " at {volume}%"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format-alt-click": "click-right",
+        "format-alt": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "~/.config/HyprV/waybar/scripts/brightness --inc",
+        "on-scroll-down": "~/.config/HyprV/waybar/scripts/brightness --dec"
+    },
+
+    "tray": {
+        "icon-size": 15,
+        "spacing": 7
+    },
+
+    "custom/updates": {
+        "format": "{}",
+        "exec": "~/.config/HyprV/waybar/scripts/update-sys",
+        "on-click": "~/.config/HyprV/waybar/scripts/update-sys update",
+        "interval": 300,
+        "tooltip": true
+    }
+}

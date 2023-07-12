@@ -1,0 +1,173 @@
+bartop {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 13px;
+    min-height: 0;
+    margin-top: 0px;
+}
+
+
+window.bartop#waybar {
+    background: rgba(21, 18, 27, 0.8);
+    color: #D8DCEA;
+    border-radius: 0px;
+    margin-top: 10px;
+    
+}
+
+tooltip {
+    background: #292A30;
+    opacity: 0.9;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #292A30;
+}
+
+tooltip label{
+    color: #cdd6f4;
+}
+
+#workspaces button {
+    padding: 3px;
+    color: rgba(175, 204, 192, 0.43);
+    margin-right: 3px;
+    font-size: 12px;
+}
+
+#workspaces button.active {
+    color: rgba(138, 207, 233, 0.67);
+}
+
+#workspaces button.focused {
+    color: #a6adc8;
+    background: #eba0ac;
+    border-radius: 10px;
+}
+
+#workspaces button.urgent {
+    color: #11111b;
+    background: #a6e3a1;
+    border-radius: 10px;
+}
+
+#workspaces button:hover {
+    background: #11111b;
+    color: #cdd6f4;
+    border-radius: 10px;
+}
+
+#custom-launch_wofi,
+#custom-lock_screen,
+#custom-light_dark,
+#custom-power_btn,
+#custom-power_profile,
+#custom-weather,
+#custom-myhyprv,
+#cpu,
+#disk,
+#custom-updates,
+#memory,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#tray,
+#taskbar,
+#temperature,
+#workspaces,
+#backlight {
+    background: rgba(21, 18, 27, 0);
+    padding: 0px 5px;
+    margin: 0px 3px;
+    margin-top: 0px;
+    border: 0px;
+}
+
+#custom-launch_wofi {
+    border-radius: 10px 0px 0px 10px;
+}
+
+#custom-light_dark {
+    border-radius: 0px 10px 10px 0px;
+    margin-right: 10px;
+}
+
+#temperature.critical {
+    color: #e92d4d;
+}
+
+#tray {
+    margin-top: 0px;
+    
+}
+
+#network {
+    font-size: 11px;
+}
+
+#workspaces {
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+#custom-power_profile, #battery, #temperature{
+    color: #a6e3a1;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#window {
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#custom-launch_wofi {
+    color: #89b4fa;
+    margin-left: 10px;
+    border-right: 0px;
+}
+
+#pulseaudio {
+    color: #89b4fa;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#pulseaudio.microphone {
+    color: #cba6f7;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#clock {
+    font-size: 20px;
+    font-family: "Cantarell";
+}
+
+
+#memory,
+#disk,
+#cpu {
+    font-size: 13px;
+    font-family: "FreeMono";
+}
+
+
+#memory {
+    color: #9a9ac0;
+}
+
+#cpu {
+    color: #52a4ad;
+}
+
+#battery {
+    color: #a6e3a1;
+    border-left: 0px;
+}
+
+
