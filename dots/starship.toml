@@ -2,68 +2,46 @@
 ## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
 ## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
 
+format="""
+$username$directory$git_branch$cmd_duration
+$character
+"""
 
-#format="$directory$git_branch$git_status\n$character"
+add_newline = true 
 
-# Other languages configurations:
-c.disabled = true
-cmake.disabled = true
-haskell.disabled = true
-python.disabled = true
-ruby.disabled = true
-rust.disabled = true
-perl.disabled = true
-package.disabled = true
-lua.disabled = true
-nodejs.disabled = true
-java.disabled = true
-golang.disabled = true
+[username]
+format = " [$user]($style)@"
+style_user = "bold #adadad"
+style_root = "bold red"
+show_always = true
 
-# 󰣇
 
 [conda]
 format = ' [$symbol$environment](dimmed green) '
-#add_newline = true
 
+# Prompt symbols 
 [character]
-success_symbol = "[ 󰊠](#70c0ba)"
-#error_symbol = "[ 󰊠](#f38ba8)"
+success_symbol = "[ 󰊠](#63c0ee bold)"
 error_symbol = "[ 󰊠](#f38ba8)"
-vicmd_symbol = "[ ](#f9e2af)"
+vicmd_symbol = "[](#f9e2af)"
+
+#[directory]
+#format = "[]($style)[  ](fg:#81A1C1)[$path]($style)"
+#style = "bg:none fg:#b3b3b3"
+#truncation_length = 3
+#truncate_to_repo=false
+
+[git_branch]
+format = "[]($style)[[  ](fg:#A2DD9D bold)$branch](fg:#86AAEC)[ ]($style)"
+style = "bg:none fg:#161821"
 
 
 [cmd_duration]
 min_time = 1
-format = "(  [$duration](#aec2bf) ) "
+# duration & style 
+format = "[]($style)[[]( fg:#b3b3b3 bold)$duration](fg:#BBC3DF)[ ]($style)"
 disabled = false
-
-[directory]
-format = " [$path]($style)"
-style = "(#eaf6f5)"
-truncation_length = 3
-truncate_to_repo=false
-
-
-
-[git_branch]
-format = "[]($style)[[ ](bg:#161821 fg:#A2DD9D bold)$branch](bg:#161821 fg:#86AAEC)[ ]($style)"
 style = "bg:none fg:#161821"
 
 
-[git_status]
-# $all status$ahead_behind
-format = "[]($style)[$all_status$ahead_behind](bg:#161821 fg:#b4befe)[ ]($style)"
-style = "bg:none fg:#161821"
-conflicted = "="
-ahead =	"⇡${count}"
-behind = "⇣${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-up_to_date = ""
-untracked = "?${count}"
-stashed = ""
-modified = "!${count}"
-staged = "+${count}"
-renamed = "»${count}"
-deleted = "${count}"
-
-
+# 
