@@ -33,9 +33,16 @@ alias bpy='dex ~/mimo_py.desktop'
 
 #thunaralias
 alias tss="nohup thunar shugal/shows/  >/dev/null 2>&1 & disown; exit"
-alias tsm="nohup thunar shugal/movies/  >/dev/null 2>&1 & disown; exit"
+alias tsm="nohup thunar shugal/Movies/  >/dev/null 2>&1 & disown; exit"
+alias ts="nohup thunar shugal/  >/dev/null 2>&1 & disown; exit"
+
+#server
+alias srvr='/home/umaa/gitclone/http-file-server ~/shugal/'
+
 
 #misc
+alias whs='sudo create_ap wlo1 wlan0_ap MyAP 12345678.,'
+alias wlap='sudo iw dev wlo1 interface add wlan0_ap  type managed addr 40:f0:2f:71:47:ab'
 alias km='xmodmap ~/.Xmodmap'
 alias moon='pyphoon | lolcat'
 alias verse='curl -s https://decapi.me/twitter/latest?name=VerseQuran'
@@ -44,7 +51,15 @@ alias colors='.config/alacritty/themes/print_colors.sh'
 alias at='alacritty-themes'
 alias fk='fuck'
 alias tte='tt -t 60 -oneshot -showwpm'
+alias ww='curl wttr.in/Islamabad?2qF'
 
+
+
+#pushbullet
+alias pbp="pb push -d 0 " 
+alias pbl="pb  list -c 1 " 
+alias pbl2="pb  list -c 2 " 
+alias pbll="pb  list -c 10 " 
 
 #exa
 alias ela="exa --long --all --header --icons"
@@ -61,8 +76,8 @@ alias yr='yay -Rns'
 alias pi='sudo pacman -S'
 alias ps='sudo pacman -Ss'
 alias pr='sudo pacman -Rns'
-alias upm='sudo pacman -Sy'
-alias cupm='sudo pacman -Syu'
+alias cpm='sudo pacman -Sy'
+alias upm='sudo pacman -Syu'
 
 
 
@@ -79,9 +94,11 @@ alias cupm='sudo pacman -Syu'
 }
 
 #textshare
- copytextix() {
+ ctix() {
 	echo "$@" | curl -F 'f:1=<-' ix.io
 } 
+
+
 
 #cheatsheet
  helpme() {
@@ -91,7 +108,7 @@ alias cupm='sudo pacman -Syu'
 
 
 #rate-mirrors
-alias mupdate='rate-mirrors --allow-root --protocol https  arch | sudo tee /etc/pacman.d/mirrorlist'
+alias mru='rate-mirrors --allow-root --protocol https  arch | sudo tee /etc/pacman.d/mirrorlist'
 
 
 #colorscript
@@ -115,12 +132,18 @@ export EDITOR="vim"
 #fzf
 alias f="fzf"
 
+#wallpaper 
+alias wp='swww img ~/TwinklingStars.gif'
+
+
 #jump
 [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 
 #terminal
 alias brc='vim .bashrc'
 
-eval "$(starship init bash)"
+#eval "$(starship init bash)"
 
-eval "$(thefuck --alias)"
+#eval "$(thefuck --alias)"
+
+eval "$(starship init bash)"
